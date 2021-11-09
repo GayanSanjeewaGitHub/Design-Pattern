@@ -1,12 +1,10 @@
-// A Java program to demonstrate working of
-// Prototype Design Pattern with example
-// of a ColorStore class to store existing objects.
+ 
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-abstract class Color implements Cloneable
+abstract class BenzCar implements Cloneable
 {
 	
 	protected String colorName;
@@ -28,9 +26,9 @@ abstract class Color implements Cloneable
 	}
 }
 
-class blueColor extends Color
+class BenzCar extends BenzCar
 {
-	public blueColor()
+	public BenzCar()
 	{
 		this.colorName = "blue";
 	}
@@ -43,9 +41,9 @@ class blueColor extends Color
 	
 }
 
-class blackColor extends Color{
+class AudiCar extends BenzCar{
 
-	public blackColor()
+	public AudiCar()
 	{
 		this.colorName = "black";
 	}
@@ -59,17 +57,17 @@ class blackColor extends Color{
 
 class ColorStore {
 
-	private static Map<String, Color> colorMap = new HashMap<String, Color>();
+	private static Map<String, BenzCar> colorMap = new HashMap<String, BenzCar>();
 	
 	static
 	{
-		colorMap.put("blue", new blueColor());
-		colorMap.put("black", new blackColor());
+		colorMap.put("blue", new BenzCar());
+		colorMap.put("black", new AudiCar());
 	}
 	
-	public static Color getColor(String colorName)
+	public static BenzCar getColor(String colorName)
 	{
-		return (Color) colorMap.get(colorName).clone();
+		return (BenzCar) colorMap.get(colorName).clone();
 	}
 }
 
